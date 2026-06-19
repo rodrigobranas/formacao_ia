@@ -1,0 +1,27 @@
+{
+  "name": "mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "sql-stdio": "node dist/sql-stdio.js",
+    "random-number-stdio": "node dist/random-number-stdio.js",
+    "random-number-http": "node dist/random-number-http.js",
+    "tur-http": "node dist/tur-http.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "express": "^5.2.1",
+    "pg-promise": "^11.5.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
+  }
+}
