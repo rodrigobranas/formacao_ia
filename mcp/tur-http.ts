@@ -249,3 +249,5 @@ app.post("/mcp", async (req, res) => {
 });
 
 app.listen(3001);
+
+// claude mcp add --scope user --transport http tur-mcp http://localhost:3001/mcp

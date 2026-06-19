@@ -38,3 +38,4 @@ app.post("/mcp", async (req, res) => {
 
 app.listen(3000);
 
+// claude mcp add --scope user --transport http sql-mcp http://localhost:3000/mcp
