@@ -27,9 +27,9 @@ Esta tarefa depende das Tarefas 1.0 e 2.0 concluídas (API + UI integradas).
 
 ## Subtarefas
 
-- [ ] 3.1 Adicionar `@playwright/test` ao frontend (`package.json` + script `test:e2e`) e configurar `playwright.config.ts` (subir backend + frontend, baseURL, projetos de browser, contexto com `geolocation`/permissões).
-- [ ] 3.2 Criar utilitário de mock da Open-Meteo por interceptação de rede (route fulfill) reutilizando as fixtures JSON versionadas (dia/noite, grupos WMO, `air` ausente, geocoding vazio e homônimos), com variações de `200`, `502` e atraso/timeout.
-- [ ] 3.3 Implementar os 9 specs em `frontend/e2e/*.spec.ts` cobrindo os fluxos abaixo, incluindo a verificação axe e navegação por teclado na superfície escura.
+- [x] 3.1 Adicionar `@playwright/test` ao frontend (`package.json` + script `test:e2e`) e configurar `playwright.config.ts` (subir backend + frontend, baseURL, projetos de browser, contexto com `geolocation`/permissões).
+- [x] 3.2 Criar utilitário de mock da Open-Meteo por interceptação de rede (route fulfill) reutilizando as fixtures JSON versionadas (dia/noite, grupos WMO, `air` ausente, geocoding vazio e homônimos), com variações de `200`, `502` e atraso/timeout.
+- [x] 3.3 Implementar os 9 specs em `frontend/e2e/*.spec.ts` cobrindo os fluxos abaixo, incluindo a verificação axe e navegação por teclado na superfície escura.
 
 ## Detalhes de implementação
 
@@ -60,15 +60,15 @@ Pontos-chave a respeitar:
 
 ### Testes E2E (Playwright, Open-Meteo mockada)
 
-- [ ] #1 **Fluxo principal (US1–US5):** digitar cidade → selecionar sugestão → ver clima atual, 24h, 7 dias, métricas, UV, arco solar e qualidade do ar.
-- [ ] #2 **Autocomplete/desambiguação (US1):** termo com homônimos lista variações com estado/país.
-- [ ] #3 **Geolocalização (US6):** conceder permissão (contexto com geolocation) carrega o clima local.
-- [ ] #4 **Permissão negada (US8):** negar geolocalização mantém a busca manual operante.
-- [ ] #5 **Cidade não encontrada (US7):** busca inválida exibe mensagem clara em PT-BR.
-- [ ] #6 **Falha de rede/fonte (US9):** mock de `502`/timeout exibe toast de erro; "Tentar de novo" recupera após o mock voltar a `200`.
-- [ ] #7 **Métrica indisponível (RF17):** mock com `air: null` mostra o estado vazio do cartão de qualidade do ar.
-- [ ] #8 **Estados de carregamento (RF23/US10):** skeletons visíveis durante atraso simulado da resposta.
-- [ ] #9 **Acessibilidade (WCAG 2.1 AA):** navegação por teclado completa (busca → listbox → seleção) + verificação axe na superfície escura; respeito a `prefers-reduced-motion`.
+- [x] #1 **Fluxo principal (US1–US5):** digitar cidade → selecionar sugestão → ver clima atual, 24h, 7 dias, métricas, UV, arco solar e qualidade do ar.
+- [x] #2 **Autocomplete/desambiguação (US1):** termo com homônimos lista variações com estado/país.
+- [x] #3 **Geolocalização (US6):** conceder permissão (contexto com geolocation) carrega o clima local.
+- [x] #4 **Permissão negada (US8):** negar geolocalização mantém a busca manual operante.
+- [x] #5 **Cidade não encontrada (US7):** busca inválida exibe mensagem clara em PT-BR.
+- [x] #6 **Falha de rede/fonte (US9):** mock de `502`/timeout exibe toast de erro; "Tentar de novo" recupera após o mock voltar a `200`.
+- [x] #7 **Métrica indisponível (RF17):** mock com `air: null` mostra o estado vazio do cartão de qualidade do ar.
+- [x] #8 **Estados de carregamento (RF23/US10):** skeletons visíveis durante atraso simulado da resposta.
+- [x] #9 **Acessibilidade (WCAG 2.1 AA):** navegação por teclado completa (busca → listbox → seleção) + verificação axe na superfície escura; respeito a `prefers-reduced-motion`.
 
 ## Arquivos relevantes
 

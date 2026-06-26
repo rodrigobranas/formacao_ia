@@ -4,9 +4,9 @@
 
 ## Tarefas
 
-- [ ] 1.0 Backend — origem única de dados (API de clima)
-- [ ] 2.0 Frontend — painel de clima completo
-- [ ] 3.0 E2E — validação ponta a ponta (Playwright)
+- [x] 1.0 Backend — origem única de dados (API de clima)
+- [x] 2.0 Frontend — painel de clima completo
+- [x] 3.0 E2E — validação ponta a ponta (Playwright)
 
 ## Mapa de dependências
 

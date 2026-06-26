@@ -27,12 +27,12 @@ Segue estritamente as camadas `routes → services → data` com `types` transve
 
 ## Subtarefas
 
-- [ ] 1.1 Adicionar infra de testes ao backend: `vitest` + `supertest` (+ tipos) em `package.json`, script `test`, config mínima de Vitest. URLs base da Open-Meteo parametrizáveis por env var com defaults (para stub em testes).
-- [ ] 1.2 Criar os tipos em `backend/src/types/` (um tipo por arquivo): `geo-result.ts`, `weather-payload.ts`, `current-weather.ts`, `hourly-forecast.ts`, `daily-forecast.ts`, `air-quality.ts`, `weather-error.ts`, `weather-query.ts` — espelhando o contrato da techspec.
-- [ ] 1.3 Implementar `data/open-meteo-client.ts` (fronteira HTTP única): `searchCities`, `fetchForecast`, `fetchAirQuality`; monta URLs/parâmetros fixos, aplica timeout via `AbortController` (~8 s), parseia JSON e converte falhas de upstream em erros tipados (`upstream_unavailable`). **+ testes unitários #1–10.**
-- [ ] 1.4 Implementar `services/weather-codes.ts` (domínio puro, sem I/O): `toCondition` (WMO → rótulo PT-BR + grupo), `toUvCategory`, `toAirQualityCategory` — via mapas de lookup. **+ testes unitários #11–16.**
-- [ ] 1.5 Implementar `services/weather-service.ts`: `searchCities` (normaliza geocoding) e `getWeather` (dispara Forecast + Air Quality em paralelo, agrega em `WeatherPayload`, seleciona janela de 24h, calcula `wind_cardinal`, aplica rótulos via `weather-codes`, trata Air Quality como opcional). **+ testes unitários #17–26.**
-- [ ] 1.6 Implementar `routes/weather-routes.ts` (parse/validação de query, delega ao service, formata resposta/erros HTTP — sem regra de negócio) e registrar o router em `index.ts` antes do middleware de erro, mantendo `/health`. **+ testes de integração #1–8.**
+- [x] 1.1 Adicionar infra de testes ao backend: `vitest` + `supertest` (+ tipos) em `package.json`, script `test`, config mínima de Vitest. URLs base da Open-Meteo parametrizáveis por env var com defaults (para stub em testes).
+- [x] 1.2 Criar os tipos em `backend/src/types/` (um tipo por arquivo): `geo-result.ts`, `weather-payload.ts`, `current-weather.ts`, `hourly-forecast.ts`, `daily-forecast.ts`, `air-quality.ts`, `weather-error.ts`, `weather-query.ts` — espelhando o contrato da techspec.
+- [x] 1.3 Implementar `data/open-meteo-client.ts` (fronteira HTTP única): `searchCities`, `fetchForecast`, `fetchAirQuality`; monta URLs/parâmetros fixos, aplica timeout via `AbortController` (~8 s), parseia JSON e converte falhas de upstream em erros tipados (`upstream_unavailable`). **+ testes unitários #1–10.**
+- [x] 1.4 Implementar `services/weather-codes.ts` (domínio puro, sem I/O): `toCondition` (WMO → rótulo PT-BR + grupo), `toUvCategory`, `toAirQualityCategory` — via mapas de lookup. **+ testes unitários #11–16.**
+- [x] 1.5 Implementar `services/weather-service.ts`: `searchCities` (normaliza geocoding) e `getWeather` (dispara Forecast + Air Quality em paralelo, agrega em `WeatherPayload`, seleciona janela de 24h, calcula `wind_cardinal`, aplica rótulos via `weather-codes`, trata Air Quality como opcional). **+ testes unitários #17–26.**
+- [x] 1.6 Implementar `routes/weather-routes.ts` (parse/validação de query, delega ao service, formata resposta/erros HTTP — sem regra de negócio) e registrar o router em `index.ts` antes do middleware de erro, mantendo `/health`. **+ testes de integração #1–8.**
 
 ## Detalhes de implementação
 
@@ -58,48 +58,48 @@ Pontos-chave a respeitar:
 ### Testes unitários
 
 **`data/open-meteo-client.ts` (stub de `fetch`):**
-- [ ] #1 `searchCities` monta URL com `name`, `count`, `language=pt`, `format=json`.
-- [ ] #2 `searchCities` parseia `results[]` e normaliza `admin1/country/country_code` ausentes para `null`.
-- [ ] #3 `searchCities` retorna `[]` quando a Open-Meteo responde sem `results`.
-- [ ] #4 `fetchForecast` monta URL com `current/hourly/daily`, `temperature_unit=celsius`, `wind_speed_unit=kmh`, `timezone=auto`, `forecast_days=7`.
-- [ ] #5 `fetchForecast` parseia `current/hourly/daily` e respectivos `_units`.
-- [ ] #6 `fetchForecast` lança `upstream_unavailable` em HTTP 500.
-- [ ] #7 `fetchForecast` lança `upstream_unavailable` quando o corpo é `{ error: true, reason }`.
-- [ ] #8 `fetchForecast` lança `upstream_unavailable` em timeout/abort.
-- [ ] #9 `fetchAirQuality` monta URL com `european_aqi,pm2_5,pm10,ozone,nitrogen_dioxide` + `timezone=auto`.
-- [ ] #10 `fetchAirQuality` retorna `null` (sem propagar erro) quando o upstream falha.
+- [x] #1 `searchCities` monta URL com `name`, `count`, `language=pt`, `format=json`.
+- [x] #2 `searchCities` parseia `results[]` e normaliza `admin1/country/country_code` ausentes para `null`.
+- [x] #3 `searchCities` retorna `[]` quando a Open-Meteo responde sem `results`.
+- [x] #4 `fetchForecast` monta URL com `current/hourly/daily`, `temperature_unit=celsius`, `wind_speed_unit=kmh`, `timezone=auto`, `forecast_days=7`.
+- [x] #5 `fetchForecast` parseia `current/hourly/daily` e respectivos `_units`.
+- [x] #6 `fetchForecast` lança `upstream_unavailable` em HTTP 500.
+- [x] #7 `fetchForecast` lança `upstream_unavailable` quando o corpo é `{ error: true, reason }`.
+- [x] #8 `fetchForecast` lança `upstream_unavailable` em timeout/abort.
+- [x] #9 `fetchAirQuality` monta URL com `european_aqi,pm2_5,pm10,ozone,nitrogen_dioxide` + `timezone=auto`.
+- [x] #10 `fetchAirQuality` retorna `null` (sem propagar erro) quando o upstream falha.
 
 **`services/weather-codes.ts` (puro):**
-- [ ] #11 `toCondition` retorna rótulo PT-BR e grupo corretos por faixa WMO (0/1/2/3, 45–48, 51–57, 61–67, 71–77, 80–82, 85–86, 95–99).
-- [ ] #12 `toCondition` usa fallback ("Tempo"/grupo `cloudy`) para código desconhecido.
-- [ ] #13 `toUvCategory` aplica fronteiras: <3 Baixo, <6 Moderado, <8 Alto, <11 Muito alto, ≥11 Extremo.
-- [ ] #14 `toUvCategory` retorna `null` quando UV é `null`.
-- [ ] #15 `toAirQualityCategory` aplica fronteiras EAQI (≤20 Boa, ≤40 Razoável, ≤60 Moderada, ≤80 Ruim, ≤100 Muito ruim, >100 Péssima) com descrição correspondente.
-- [ ] #16 `toAirQualityCategory` retorna `null` quando EAQI é `null`.
+- [x] #11 `toCondition` retorna rótulo PT-BR e grupo corretos por faixa WMO (0/1/2/3, 45–48, 51–57, 61–67, 71–77, 80–82, 85–86, 95–99).
+- [x] #12 `toCondition` usa fallback ("Tempo"/grupo `cloudy`) para código desconhecido.
+- [x] #13 `toUvCategory` aplica fronteiras: <3 Baixo, <6 Moderado, <8 Alto, <11 Muito alto, ≥11 Extremo.
+- [x] #14 `toUvCategory` retorna `null` quando UV é `null`.
+- [x] #15 `toAirQualityCategory` aplica fronteiras EAQI (≤20 Boa, ≤40 Razoável, ≤60 Moderada, ≤80 Ruim, ≤100 Muito ruim, >100 Péssima) com descrição correspondente.
+- [x] #16 `toAirQualityCategory` retorna `null` quando EAQI é `null`.
 
 **`services/weather-service.ts` (stub do client):**
-- [ ] #17 `searchCities` repassa termo e devolve resultados normalizados.
-- [ ] #18 `searchCities` retorna `[]` para termo sem correspondência (RF4).
-- [ ] #19 `getWeather` agrega Forecast + Air Quality em `WeatherPayload` com `units` em °C/km/h.
-- [ ] #20 `getWeather` seleciona as próximas 24 horas a partir de `current.time`.
-- [ ] #21 `getWeather` preenche `daily` com 7 dias (máx/mín/condição/UV/sol).
-- [ ] #22 `getWeather` enriquece `location` com `name/admin1/country` da query quando o upstream não os ecoa.
-- [ ] #23 `getWeather` define `extras.air = null` e mantém `200` quando Air Quality indisponível (RF17).
-- [ ] #24 `getWeather` propaga `upstream_unavailable` quando Forecast falha.
-- [ ] #25 `getWeather` calcula `wind_cardinal` a partir de `wind_direction`.
-- [ ] #26 `getWeather` aplica rótulos PT-BR de condição/UV/AQI via `weather-codes`.
+- [x] #17 `searchCities` repassa termo e devolve resultados normalizados.
+- [x] #18 `searchCities` retorna `[]` para termo sem correspondência (RF4).
+- [x] #19 `getWeather` agrega Forecast + Air Quality em `WeatherPayload` com `units` em °C/km/h.
+- [x] #20 `getWeather` seleciona as próximas 24 horas a partir de `current.time`.
+- [x] #21 `getWeather` preenche `daily` com 7 dias (máx/mín/condição/UV/sol).
+- [x] #22 `getWeather` enriquece `location` com `name/admin1/country` da query quando o upstream não os ecoa.
+- [x] #23 `getWeather` define `extras.air = null` e mantém `200` quando Air Quality indisponível (RF17).
+- [x] #24 `getWeather` propaga `upstream_unavailable` quando Forecast falha.
+- [x] #25 `getWeather` calcula `wind_cardinal` a partir de `wind_direction`.
+- [x] #26 `getWeather` aplica rótulos PT-BR de condição/UV/AQI via `weather-codes`.
 
 ### Testes de integração
 
 **Rotas com `supertest` (stub da camada `data`):**
-- [ ] #1 `GET /api/weather/search?q=Lon` → `200` com `{ results: [...] }`.
-- [ ] #2 `GET /api/weather/search` sem `q` (ou < 2) → `400 invalid_request`.
-- [ ] #3 `GET /api/weather/search` sem correspondência → `200 { results: [] }`.
-- [ ] #4 `GET /api/weather?lat&lon` → `200` com `WeatherPayload` completo.
-- [ ] #5 `GET /api/weather` sem/inválido `lat/lon` → `400 invalid_request`.
-- [ ] #6 `GET /api/weather` com Forecast indisponível → `502 upstream_unavailable`.
-- [ ] #7 `GET /api/weather` com Air Quality indisponível → `200` e `air: null`.
-- [ ] #8 Corpo de erro segue `{ error: { code, message } }` em todos os casos.
+- [x] #1 `GET /api/weather/search?q=Lon` → `200` com `{ results: [...] }`.
+- [x] #2 `GET /api/weather/search` sem `q` (ou < 2) → `400 invalid_request`.
+- [x] #3 `GET /api/weather/search` sem correspondência → `200 { results: [] }`.
+- [x] #4 `GET /api/weather?lat&lon` → `200` com `WeatherPayload` completo.
+- [x] #5 `GET /api/weather` sem/inválido `lat/lon` → `400 invalid_request`.
+- [x] #6 `GET /api/weather` com Forecast indisponível → `502 upstream_unavailable`.
+- [x] #7 `GET /api/weather` com Air Quality indisponível → `200` e `air: null`.
+- [x] #8 Corpo de erro segue `{ error: { code, message } }` em todos os casos.
 
 ### Testes E2E (se aplicável)
 

@@ -28,12 +28,12 @@ O layout segue **fielmente** o design de referência obrigatório `docs/design/i
 
 ## Subtarefas
 
-- [ ] 2.1 Adicionar infra de testes ao frontend (`vitest`, `@testing-library/react`, `jsdom`) + script `test`; configurar proxy `/api` → `http://localhost:3000` em `vite.config.ts`; criar `frontend/src/types/*` espelhando o contrato do backend.
-- [ ] 2.2 Implementar `services/weather-api.ts` (único lugar com `fetch`): `searchCities` e `fetchWeather` por caminho relativo; mapeia respostas e lança erros tipados (cidade não encontrada / fonte indisponível / falha de rede). **+ testes unitários #27–29.**
-- [ ] 2.3 Implementar hooks: `use-city-search` (debounce 240 ms, mínimo 2 caracteres, cancelamento de obsoletas), `use-weather` (máquina `idle|loading|success|error`, `loadPlace`, `retry`, cidade ativa), `use-geolocation` (estados `idle|requesting|granted|denied|unsupported`). **+ testes unitários #30–39.**
-- [ ] 2.4 Implementar a camada presentacional pura em `lib/`: `sky.ts` (gradiente por grupo + dia/noite), `weather-icon.tsx` (ícones monoline por código/grupo, sem emoji), `format.ts` (°C, `HH:mm`, ponto cardeal, percentuais, placeholder para `null`); aplicar tokens de vidro/atmosfera do `DESIGN.md` em `index.css`. **+ testes unitários #40–42.**
-- [ ] 2.5 Implementar os componentes: `top-bar`, `city-search` + `suggestion-list`, `geolocation-button`, `weather-hero`, `hourly-forecast-card`, `daily-forecast-card`, `detailed-metrics-card`, `sun-arc-card`, `air-quality-card`, `error-toast`, `loading-skeletons`, `api-status-pill`. **+ testes unitários #43–55.**
-- [ ] 2.6 Implementar `pages/weather-dashboard-page.tsx` (compõe hooks + componentes, orquestra loading/sucesso/erro/vazio) e ligar em `App.tsx`. **+ testes de integração #9–13.**
+- [x] 2.1 Adicionar infra de testes ao frontend (`vitest`, `@testing-library/react`, `jsdom`) + script `test`; configurar proxy `/api` → `http://localhost:3000` em `vite.config.ts`; criar `frontend/src/types/*` espelhando o contrato do backend.
+- [x] 2.2 Implementar `services/weather-api.ts` (único lugar com `fetch`): `searchCities` e `fetchWeather` por caminho relativo; mapeia respostas e lança erros tipados (cidade não encontrada / fonte indisponível / falha de rede). **+ testes unitários #27–29.**
+- [x] 2.3 Implementar hooks: `use-city-search` (debounce 240 ms, mínimo 2 caracteres, cancelamento de obsoletas), `use-weather` (máquina `idle|loading|success|error`, `loadPlace`, `retry`, cidade ativa), `use-geolocation` (estados `idle|requesting|granted|denied|unsupported`). **+ testes unitários #30–39.**
+- [x] 2.4 Implementar a camada presentacional pura em `lib/`: `sky.ts` (gradiente por grupo + dia/noite), `weather-icon.tsx` (ícones monoline por código/grupo, sem emoji), `format.ts` (°C, `HH:mm`, ponto cardeal, percentuais, placeholder para `null`); aplicar tokens de vidro/atmosfera do `DESIGN.md` em `index.css`. **+ testes unitários #40–42.**
+- [x] 2.5 Implementar os componentes: `top-bar`, `city-search` + `suggestion-list`, `geolocation-button`, `weather-hero`, `hourly-forecast-card`, `daily-forecast-card`, `detailed-metrics-card`, `sun-arc-card`, `air-quality-card`, `error-toast`, `loading-skeletons`, `api-status-pill`. **+ testes unitários #43–55.**
+- [x] 2.6 Implementar `pages/weather-dashboard-page.tsx` (compõe hooks + componentes, orquestra loading/sucesso/erro/vazio) e ligar em `App.tsx`. **+ testes de integração #9–13.**
 
 ## Detalhes de implementação
 
@@ -59,50 +59,50 @@ Pontos-chave a respeitar:
 ### Testes unitários
 
 **`services/weather-api.ts` (stub de `fetch`):**
-- [ ] #27 `searchCities` chama `/api/weather/search?q=` (caminho relativo) e mapeia `results`.
-- [ ] #28 `fetchWeather` chama `/api/weather?lat&lon` e mapeia `WeatherPayload`.
-- [ ] #29 Mapeia `404/empty` → "cidade não encontrada", `502` → "fonte indisponível" e erro de rede → "falha de rede" (códigos tipados).
+- [x] #27 `searchCities` chama `/api/weather/search?q=` (caminho relativo) e mapeia `results`.
+- [x] #28 `fetchWeather` chama `/api/weather?lat&lon` e mapeia `WeatherPayload`.
+- [x] #29 Mapeia `404/empty` → "cidade não encontrada", `502` → "fonte indisponível" e erro de rede → "falha de rede" (códigos tipados).
 
 **Hooks:**
-- [ ] #30 `use-city-search`: ignora termos com < 2 caracteres.
-- [ ] #31 `use-city-search`: aplica debounce (não dispara durante digitação rápida).
-- [ ] #32 `use-city-search`: cancela resposta obsoleta (última busca vence).
-- [ ] #33 `use-city-search`: expõe estados loading → success/empty/error.
-- [ ] #34 `use-weather`: transição `loading → success` com payload.
-- [ ] #35 `use-weather`: transição `loading → error` e `retry` refaz a chamada (RF25).
-- [ ] #36 `use-weather`: define cidade ativa após sucesso (RF8).
-- [ ] #37 `use-geolocation`: sucesso retorna coordenadas arredondadas.
-- [ ] #38 `use-geolocation`: permissão negada → estado `denied` sem quebrar a busca manual (RF20/US8).
-- [ ] #39 `use-geolocation`: navegador sem suporte → estado `unsupported`.
+- [x] #30 `use-city-search`: ignora termos com < 2 caracteres.
+- [x] #31 `use-city-search`: aplica debounce (não dispara durante digitação rápida).
+- [x] #32 `use-city-search`: cancela resposta obsoleta (última busca vence).
+- [x] #33 `use-city-search`: expõe estados loading → success/empty/error.
+- [x] #34 `use-weather`: transição `loading → success` com payload.
+- [x] #35 `use-weather`: transição `loading → error` e `retry` refaz a chamada (RF25).
+- [x] #36 `use-weather`: define cidade ativa após sucesso (RF8).
+- [x] #37 `use-geolocation`: sucesso retorna coordenadas arredondadas.
+- [x] #38 `use-geolocation`: permissão negada → estado `denied` sem quebrar a busca manual (RF20/US8).
+- [x] #39 `use-geolocation`: navegador sem suporte → estado `unsupported`.
 
 **`lib` (presentacional puro):**
-- [ ] #40 `sky.ts`: retorna trios de gradiente distintos para dia vs. noite por grupo (clear/cloudy/rain/thunder…).
-- [ ] #41 `weather-icon.tsx`: seleciona ícone por grupo + `is_day` (sem emoji).
-- [ ] #42 `format.ts`: arredonda temperatura em °C; `HH:mm` a partir de ISO; ponto cardeal a partir de graus; trata `null` com placeholder.
+- [x] #40 `sky.ts`: retorna trios de gradiente distintos para dia vs. noite por grupo (clear/cloudy/rain/thunder…).
+- [x] #41 `weather-icon.tsx`: seleciona ícone por grupo + `is_day` (sem emoji).
+- [x] #42 `format.ts`: arredonda temperatura em °C; `HH:mm` a partir de ISO; ponto cardeal a partir de graus; trata `null` com placeholder.
 
 **Componentes (`@testing-library/react`, props stubadas):**
-- [ ] #43 `weather-hero`: temperatura, condição PT-BR, máx/mín, sensação/vento/umidade/prob. de chuva e nome da cidade (RF5–RF8); container `aria-live="polite"`.
-- [ ] #44 `city-search` + `suggestion-list`: sugestões com desambiguação (admin1/país + chip de país) (RF1/RF2); `role="listbox"`/`option`.
-- [ ] #45 `city-search`: navegação por teclado ↑/↓/Enter/Esc seleciona/fecha e dispara seleção (RF3).
-- [ ] #46 `city-search`: estado vazio "Nenhuma cidade encontrada" (RF4).
-- [ ] #47 `hourly-forecast-card`: 24 colunas com rótulo textual de temperatura por hora além da curva (RF9–RF11).
-- [ ] #48 `daily-forecast-card`: 7 linhas com mín, máx e condição por dia (RF12/RF13).
-- [ ] #49 `detailed-metrics-card`: UV com rótulo qualitativo e demais métricas (RF7/RF15).
-- [ ] #50 `sun-arc-card`: horários de nascer/pôr do sol (RF16).
-- [ ] #51 `air-quality-card`: EAQI + rótulo qualitativo + poluentes (RF14).
-- [ ] #52 `air-quality-card`: estado vazio explícito quando `air === null` (RF17).
-- [ ] #53 `error-toast`: mensagem e botão "Tentar de novo" apenas quando recuperável (RF25).
-- [ ] #54 `loading-skeletons`: placeholders de hero/horário/diário (RF23).
-- [ ] #55 Acessibilidade: estados (AQI/UV/status da API/erro) acompanham rótulo textual, não só cor (RF26).
+- [x] #43 `weather-hero`: temperatura, condição PT-BR, máx/mín, sensação/vento/umidade/prob. de chuva e nome da cidade (RF5–RF8); container `aria-live="polite"`.
+- [x] #44 `city-search` + `suggestion-list`: sugestões com desambiguação (admin1/país + chip de país) (RF1/RF2); `role="listbox"`/`option`.
+- [x] #45 `city-search`: navegação por teclado ↑/↓/Enter/Esc seleciona/fecha e dispara seleção (RF3).
+- [x] #46 `city-search`: estado vazio "Nenhuma cidade encontrada" (RF4).
+- [x] #47 `hourly-forecast-card`: 24 colunas com rótulo textual de temperatura por hora além da curva (RF9–RF11).
+- [x] #48 `daily-forecast-card`: 7 linhas com mín, máx e condição por dia (RF12/RF13).
+- [x] #49 `detailed-metrics-card`: UV com rótulo qualitativo e demais métricas (RF7/RF15).
+- [x] #50 `sun-arc-card`: horários de nascer/pôr do sol (RF16).
+- [x] #51 `air-quality-card`: EAQI + rótulo qualitativo + poluentes (RF14).
+- [x] #52 `air-quality-card`: estado vazio explícito quando `air === null` (RF17).
+- [x] #53 `error-toast`: mensagem e botão "Tentar de novo" apenas quando recuperável (RF25).
+- [x] #54 `loading-skeletons`: placeholders de hero/horário/diário (RF23).
+- [x] #55 Acessibilidade: estados (AQI/UV/status da API/erro) acompanham rótulo textual, não só cor (RF26).
 
 ### Testes de integração
 
 **Página com hooks reais + `services` stubados:**
-- [ ] #9 `weather-dashboard-page`: busca → seleção de sugestão → render do hero/cartões (fluxo principal US1–US5).
-- [ ] #10 `weather-dashboard-page`: geolocalização concedida define a cidade ativa (US6).
-- [ ] #11 `weather-dashboard-page`: "cidade não encontrada" exibe orientação de correção (US7).
-- [ ] #12 `weather-dashboard-page`: permissão negada mantém busca manual funcional (US8).
-- [ ] #13 `weather-dashboard-page`: erro de rede/API exibe toast com "Tentar de novo" e a repetição recarrega (US9).
+- [x] #9 `weather-dashboard-page`: busca → seleção de sugestão → render do hero/cartões (fluxo principal US1–US5).
+- [x] #10 `weather-dashboard-page`: geolocalização concedida define a cidade ativa (US6).
+- [x] #11 `weather-dashboard-page`: "cidade não encontrada" exibe orientação de correção (US7).
+- [x] #12 `weather-dashboard-page`: permissão negada mantém busca manual funcional (US8).
+- [x] #13 `weather-dashboard-page`: erro de rede/API exibe toast com "Tentar de novo" e a repetição recarrega (US9).
 
 ### Testes E2E (se aplicável)
 

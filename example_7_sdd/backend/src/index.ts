@@ -1,6 +1,7 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { weatherRouter } from './routes/weather-routes';
 
 dotenv.config();
 
@@ -11,14 +12,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/health', (req: Request, res: Response) => {
-  res.json({ 
+app.get('/health', (_req: Request, res: Response) => {
+  res.json({
     status: 'healthy',
     timestamp: new Date().toISOString()
   });
 });
 
-app.use((err: Error, req: Request, res: Response, next: any) => {
+app.use('/api/weather', weatherRouter);
+
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error(err.stack);
   res.status(500).json({ 
     error: 'Something went wrong!',

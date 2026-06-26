@@ -1,0 +1,14 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - text: Tempo
+      - generic [ref=e12]: Open-Meteo
+    - generic [ref=e14]:
+      - img [ref=e15]
+      - combobox "Buscar cidade" [ref=e18]
+    - generic [ref=e19]:
+      - status [ref=e20]: Verificando API…
+      - button "Usar minha localização" [ref=e22] [cursor=pointer]:
+        - img [ref=e23]
+  - paragraph [ref=e26]: Busque uma cidade ou use sua localização para ver o clima.

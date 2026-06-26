@@ -5,7 +5,7 @@ description: Defines testing standards for the example_6_cursor full-stack proje
 
 # Testing Standards
 
-Every feature, bug fix, or behavior change in `example_6_cursor` **must** include automated tests. Use **Vitest** for unit and integration tests; use **Playwright** for end-to-end (E2E) tests that exercise the full stack (frontend + backend).
+Every feature, bug fix, or behavior change  **must** include automated tests. Use **Vitest** for unit and integration tests; use **Playwright** for end-to-end (E2E) tests that exercise the full stack (frontend + backend).
 
 See also: [code-standards](../code-standards/SKILL.md), AGENTS.md (folder structure), and [react](../react/SKILL.md).
 
