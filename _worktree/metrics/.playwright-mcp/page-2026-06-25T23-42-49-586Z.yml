@@ -1,0 +1,360 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - text: Tempo
+      - generic [ref=e12]: Open-Meteo
+    - generic [ref=e14]:
+      - img [ref=e29]
+      - combobox "Buscar cidade" [active] [ref=e18]
+    - generic [ref=e19]:
+      - status [ref=e20]: API conectada
+      - button "Usar minha localização" [ref=e22] [cursor=pointer]:
+        - img [ref=e23]
+  - region "Clima atual em São Paulo" [ref=e69]:
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]: São Paulo
+        - generic [ref=e73]: São Paulo · Brasil
+      - button "Atualizar" [ref=e74] [cursor=pointer]:
+        - img [ref=e75]
+        - text: Atualizar
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]: 11°
+        - generic [ref=e83]:
+          - generic [ref=e84]: Nublado
+          - generic [ref=e85]:
+            - generic [ref=e86]: Máx 13°
+            - generic [ref=e87]: Mín 11°
+      - img "Nublado" [ref=e89]
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - generic [ref=e94]: Sensação
+        - generic [ref=e95]: 10°
+      - generic [ref=e96]:
+        - generic [ref=e97]: Vento
+        - generic [ref=e98]: 7 km/h SE
+      - generic [ref=e99]:
+        - generic [ref=e100]: Umidade
+        - generic [ref=e101]: 98%
+      - generic [ref=e102]:
+        - generic [ref=e103]: Prob. de chuva
+        - generic [ref=e104]: 97%
+  - region "Próximas 24 horas" [ref=e106]:
+    - generic [ref=e107]:
+      - img [ref=e108]
+      - heading "Próximas 24 horas" [level=3] [ref=e111]
+      - generic [ref=e112]: temperatura por hora
+    - generic [ref=e114]:
+      - img
+      - generic [ref=e115]:
+        - generic [ref=e116]:
+          - generic [ref=e118]: 11°
+          - img "cloudy" [ref=e120]
+          - generic [ref=e123]: Agora
+          - generic [ref=e124]:
+            - img [ref=e125]
+            - text: 80%
+        - generic [ref=e127]:
+          - generic [ref=e129]: 11°
+          - img "cloudy" [ref=e131]
+          - generic [ref=e134]: 22:00
+          - generic [ref=e135]:
+            - img [ref=e136]
+            - text: 65%
+        - generic [ref=e138]:
+          - generic [ref=e140]: 11°
+          - img "cloudy" [ref=e142]
+          - generic [ref=e145]: 23:00
+          - generic [ref=e146]:
+            - img [ref=e147]
+            - text: 47%
+        - generic [ref=e149]:
+          - generic [ref=e151]: 12°
+          - img "cloudy" [ref=e153]
+          - generic [ref=e156]: 00:00
+          - generic [ref=e157]:
+            - img [ref=e158]
+            - text: 31%
+        - generic [ref=e160]:
+          - generic [ref=e162]: 12°
+          - img "cloudy" [ref=e164]
+          - generic [ref=e167]: 01:00
+          - generic [ref=e168]:
+            - img [ref=e169]
+            - text: 21%
+        - generic [ref=e171]:
+          - generic [ref=e173]: 12°
+          - img "cloudy" [ref=e175]
+          - generic [ref=e178]: 02:00
+          - generic [ref=e179]:
+            - img [ref=e180]
+            - text: 13%
+        - generic [ref=e182]:
+          - generic [ref=e184]: 13°
+          - img "cloudy" [ref=e186]
+          - generic [ref=e189]: 03:00
+          - generic [ref=e190]:
+            - img [ref=e191]
+            - text: 8%
+        - generic [ref=e193]:
+          - generic [ref=e195]: 13°
+          - img "cloudy" [ref=e197]
+          - generic [ref=e200]: 04:00
+        - generic [ref=e201]:
+          - generic [ref=e203]: 13°
+          - img "cloudy" [ref=e205]
+          - generic [ref=e208]: 05:00
+        - generic [ref=e209]:
+          - generic [ref=e211]: 13°
+          - img "cloudy" [ref=e213]
+          - generic [ref=e216]: 06:00
+        - generic [ref=e217]:
+          - generic [ref=e219]: 13°
+          - img "cloudy" [ref=e221]
+          - generic [ref=e224]: 07:00
+          - generic [ref=e225]:
+            - img [ref=e226]
+            - text: 8%
+        - generic [ref=e228]:
+          - generic [ref=e230]: 14°
+          - img "cloudy" [ref=e232]
+          - generic [ref=e235]: 08:00
+          - generic [ref=e236]:
+            - img [ref=e237]
+            - text: 18%
+        - generic [ref=e239]:
+          - generic [ref=e241]: 15°
+          - img "cloudy" [ref=e243]
+          - generic [ref=e246]: 09:00
+          - generic [ref=e247]:
+            - img [ref=e248]
+            - text: 24%
+        - generic [ref=e250]:
+          - generic [ref=e252]: 16°
+          - img "cloudy" [ref=e254]
+          - generic [ref=e257]: 10:00
+          - generic [ref=e258]:
+            - img [ref=e259]
+            - text: 22%
+        - generic [ref=e261]:
+          - generic [ref=e263]: 17°
+          - img "cloudy" [ref=e265]
+          - generic [ref=e268]: 11:00
+          - generic [ref=e269]:
+            - img [ref=e270]
+            - text: 18%
+        - generic [ref=e272]:
+          - generic [ref=e274]: 19°
+          - img "cloudy" [ref=e276]
+          - generic [ref=e279]: 12:00
+          - generic [ref=e280]:
+            - img [ref=e281]
+            - text: 20%
+        - generic [ref=e283]:
+          - generic [ref=e285]: 19°
+          - img "drizzle" [ref=e287]
+          - generic [ref=e290]: 13:00
+          - generic [ref=e291]:
+            - img [ref=e292]
+            - text: 35%
+        - generic [ref=e294]:
+          - generic [ref=e296]: 20°
+          - img "drizzle" [ref=e298]
+          - generic [ref=e301]: 14:00
+          - generic [ref=e302]:
+            - img [ref=e303]
+            - text: 56%
+        - generic [ref=e305]:
+          - generic [ref=e307]: 20°
+          - img "drizzle" [ref=e309]
+          - generic [ref=e312]: 15:00
+          - generic [ref=e313]:
+            - img [ref=e314]
+            - text: 73%
+        - generic [ref=e316]:
+          - generic [ref=e318]: 20°
+          - img "drizzle" [ref=e320]
+          - generic [ref=e323]: 16:00
+          - generic [ref=e324]:
+            - img [ref=e325]
+            - text: 82%
+        - generic [ref=e327]:
+          - generic [ref=e329]: 20°
+          - img "cloudy" [ref=e331]
+          - generic [ref=e334]: 17:00
+          - generic [ref=e335]:
+            - img [ref=e336]
+            - text: 87%
+        - generic [ref=e338]:
+          - generic [ref=e340]: 18°
+          - img "cloudy" [ref=e342]
+          - generic [ref=e345]: 18:00
+          - generic [ref=e346]:
+            - img [ref=e347]
+            - text: 84%
+        - generic [ref=e349]:
+          - generic [ref=e351]: 17°
+          - img "clear" [ref=e353]
+          - generic [ref=e355]: 19:00
+          - generic [ref=e356]:
+            - img [ref=e357]
+            - text: 68%
+        - generic [ref=e359]:
+          - generic [ref=e361]: 16°
+          - img "cloudy" [ref=e363]
+          - generic [ref=e366]: 20:00
+          - generic [ref=e367]:
+            - img [ref=e368]
+            - text: 44%
+  - generic [ref=e370]:
+    - region "Previsão de 7 dias" [ref=e371]:
+      - generic [ref=e372]:
+        - img [ref=e373]
+        - heading "Previsão de 7 dias" [level=3] [ref=e375]
+      - generic [ref=e376]:
+        - generic [ref=e377]:
+          - generic [ref=e378]: Hoje
+          - img "Garoa" [ref=e380]
+          - generic [ref=e383]: 97%
+          - generic [ref=e384]:
+            - generic [ref=e385]: 11°
+            - generic [ref=e388]: 13°
+        - generic [ref=e389]:
+          - generic [ref=e390]: Sex
+          - img "Garoa" [ref=e392]
+          - generic [ref=e395]: 87%
+          - generic [ref=e396]:
+            - generic [ref=e397]: 12°
+            - generic [ref=e400]: 20°
+        - generic [ref=e401]:
+          - generic [ref=e402]: Sáb
+          - img "Garoa" [ref=e404]
+          - generic [ref=e407]: 2%
+          - generic [ref=e408]:
+            - generic [ref=e409]: 15°
+            - generic [ref=e412]: 22°
+        - generic [ref=e413]:
+          - generic [ref=e414]: Dom
+          - img "Nublado" [ref=e416]
+          - generic [ref=e419]: 6%
+          - generic [ref=e420]:
+            - generic [ref=e421]: 15°
+            - generic [ref=e424]: 25°
+        - generic [ref=e425]:
+          - generic [ref=e426]: Seg
+          - img "Nublado" [ref=e428]
+          - generic [ref=e431]: 12%
+          - generic [ref=e432]:
+            - generic [ref=e433]: 15°
+            - generic [ref=e436]: 25°
+        - generic [ref=e437]:
+          - generic [ref=e438]: Ter
+          - img "Nublado" [ref=e440]
+          - generic [ref=e443]: 2%
+          - generic [ref=e444]:
+            - generic [ref=e445]: 15°
+            - generic [ref=e448]: 26°
+        - generic [ref=e449]:
+          - generic [ref=e450]: Qua
+          - img "Nublado" [ref=e452]
+          - generic [ref=e455]: 6%
+          - generic [ref=e456]:
+            - generic [ref=e457]: 16°
+            - generic [ref=e460]: 26°
+    - region "Condições detalhadas" [ref=e461]:
+      - generic [ref=e462]:
+        - img [ref=e463]
+        - heading "Condições detalhadas" [level=3] [ref=e466]
+      - generic [ref=e467]:
+        - generic [ref=e468]:
+          - generic [ref=e469]:
+            - img [ref=e470]
+            - text: Sensação
+          - generic [ref=e472]: 10°
+          - generic [ref=e473]: Real 11°
+        - generic [ref=e474]:
+          - generic [ref=e475]:
+            - img [ref=e476]
+            - text: Vento
+          - generic [ref=e480]: 7 km/h
+          - generic [ref=e481]: SE
+        - generic [ref=e482]:
+          - generic [ref=e483]:
+            - img [ref=e484]
+            - text: Umidade
+          - generic [ref=e487]: 98%
+          - generic [ref=e488]: umidade relativa
+        - generic [ref=e489]:
+          - generic [ref=e490]:
+            - img [ref=e491]
+            - text: Pressão
+          - generic [ref=e494]: 939 hPa
+          - generic [ref=e495]: nível do mar
+        - generic [ref=e496]:
+          - generic [ref=e497]:
+            - img [ref=e498]
+            - text: Nuvens
+          - generic [ref=e500]: 100%
+          - generic [ref=e501]: cobertura
+        - generic [ref=e502]:
+          - generic [ref=e503]:
+            - img [ref=e504]
+            - text: Precipitação
+          - generic [ref=e506]: 0 mm
+          - generic [ref=e507]: agora
+        - generic [ref=e508]:
+          - generic [ref=e509]:
+            - img [ref=e510]
+            - text: Rajadas
+          - generic [ref=e514]: 17 km/h
+          - generic [ref=e515]: pico de vento
+        - generic [ref=e516]:
+          - generic [ref=e517]:
+            - img [ref=e518]
+            - text: Índice UV
+          - generic [ref=e524]:
+            - text: "1"
+            - generic [ref=e525]: Baixo
+  - generic [ref=e528]:
+    - region "Sol" [ref=e529]:
+      - generic [ref=e530]:
+        - img [ref=e531]
+        - heading "Sol" [level=3] [ref=e536]
+      - generic [ref=e537]:
+        - img [ref=e538]
+        - generic [ref=e541]:
+          - generic [ref=e542]:
+            - generic [ref=e543]: Nascer do sol
+            - generic [ref=e544]: 06:48
+          - generic [ref=e545]:
+            - generic [ref=e546]: Pôr do sol
+            - generic [ref=e547]: 17:29
+    - region "Qualidade do ar" [ref=e548]:
+      - generic [ref=e549]:
+        - img [ref=e550]
+        - heading "Qualidade do ar" [level=3] [ref=e554]
+        - generic [ref=e555]: EAQI
+      - generic [ref=e556]:
+        - generic [ref=e557]:
+          - img [ref=e558]
+          - generic [ref=e561]:
+            - generic [ref=e562]: "23"
+            - generic [ref=e563]: EAQI
+        - generic [ref=e564]:
+          - generic [ref=e565]: Razoável
+          - generic [ref=e566]: Qualidade do ar aceitável para a maioria das pessoas.
+      - generic [ref=e567]:
+        - generic [ref=e568]:
+          - generic [ref=e569]: PM2.5
+          - generic [ref=e570]: 9.3 µg/m³
+        - generic [ref=e571]:
+          - generic [ref=e572]: PM10
+          - generic [ref=e573]: 10 µg/m³
+        - generic [ref=e574]:
+          - generic [ref=e575]: O₃
+          - generic [ref=e576]: 6 µg/m³
+        - generic [ref=e577]:
+          - generic [ref=e578]: NO₂
+          - generic [ref=e579]: 48.2 µg/m³

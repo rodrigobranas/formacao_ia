@@ -1,0 +1,18 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - text: Tempo
+      - generic [ref=e571]: Open-Meteo
+    - generic [ref=e13]:
+      - img [ref=e28]
+      - combobox "Buscar cidade" [ref=e17]
+    - generic [ref=e18]:
+      - status [ref=e19]: API indisponível
+      - button "Usar minha localização" [ref=e21] [cursor=pointer]:
+        - img [ref=e22]
+  - paragraph [ref=e1014]: Busque uma cidade ou use sua localização para ver o clima.
+  - alert [ref=e1015]:
+    - img [ref=e1016]
+    - generic [ref=e1018]: Fonte de dados indisponível.
+    - button "Tentar de novo" [ref=e1019] [cursor=pointer]

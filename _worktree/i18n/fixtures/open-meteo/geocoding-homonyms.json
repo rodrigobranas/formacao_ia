@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "id": 3448439,
+      "name": "São Paulo",
+      "latitude": -23.5475,
+      "longitude": -46.63611,
+      "elevation": 760,
+      "feature_code": "PPLA",
+      "country_code": "BR",
+      "admin1_id": 3448433,
+      "timezone": "America/Sao_Paulo",
+      "population": 10021295,
+      "country": "Brasil",
+      "country_id": 3469034,
+      "admin1": "São Paulo"
+    },
+    {
+      "id": 3448437,
+      "name": "São Paulo",
+      "latitude": -8.86389,
+      "longitude": -36.43472,
+      "elevation": 580,
+      "feature_code": "PPL",
+      "country_code": "BR",
+      "timezone": "America/Recife",
+      "population": 7754,
+      "country": "Brasil",
+      "country_id": 3469034,
+      "admin1": "Pernambuco"
+    },
+    {
+      "id": 6691831,
+      "name": "São Paulo de Olivença",
+      "latitude": -3.37917,
+      "longitude": -68.87222,
+      "elevation": 80,
+      "feature_code": "PPLA2",
+      "country_code": "BR",
+      "timezone": "America/Manaus",
+      "population": 23316,
+      "country": "Brasil",
+      "country_id": 3469034,
+      "admin1": "Amazonas"
+    }
+  ],
+  "generationtime_ms": 0.83
+}
